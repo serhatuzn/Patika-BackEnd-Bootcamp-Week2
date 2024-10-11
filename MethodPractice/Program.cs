@@ -1,56 +1,50 @@
-﻿using System;
-
-namespace MethodPractice
+﻿// Geriye değer döndürmeyen bir metot: sarkisozu
+// Ekrana sevdiğiniz bir şarkı sözünü yazdırır.
+void sarkisozu()
 {
-    class Program
-    {
-        // Programın giriş noktası olan Main metodu. Burada diğer metotları çağırıyoruz.
-        static public void Main(string[] args)
-        {
-            // Program sınıfından bir nesne oluşturuyoruz. Metotları bu nesne üzerinden çağıracağız.
-            Program program = new Program();
-            
-            // sarkisozu metodunu çağırıyoruz. Bu metot ekrana bir şarkı sözü yazdıracak.
-            program.sarkisozu();
-
-            // kalansayidondur metodunu çağırıyoruz. Rastgele bir sayı üretip 2'ye bölümünden kalan sonucu geri döndürüyor.
-            int kalan = program.kalansayidondur();
-            // Kalan sonucu ekrana yazdırıyoruz.
-            Console.WriteLine(kalan);
-
-            // carp metodunu çağırıyoruz. İki sayıyı çarpıp sonucu geri döndürüyor.
-            int carp = program.carp(5, 6);
-            // Çarpım sonucunu ekrana yazdırıyoruz.
-            Console.WriteLine(carp);
-
-            // isimsoyisim metodunu çağırıyoruz. İsim ve soyisimi parametre olarak alıp ekrana hoş geldiniz mesajı yazdırıyor.
-            program.isimsoyisim("Serhat", "Uzun");
-        }
-
-        // Geriye değer döndürmeyen bir void metot. Ekrana bir şarkı sözü yazdırır.
-        public void sarkisozu()
-        {
-            Console.WriteLine("Uzun ince bir yoldayım gidiyorum gündüz gece");
-        }
-
-        // Geriye tamsayı döndüren bir metot. Rastgele bir sayı üretip bu sayının 2'ye bölümünden kalanını döndürür.
-        public int kalansayidondur()
-        {
-            Random random = new Random(); // Rastgele sayı üretmek için Random sınıfından bir nesne oluşturuyoruz.
-            int tamsayi = random.Next(1, 100); // 1 ile 100 arasında rastgele bir sayı üretiyoruz.
-            return tamsayi % 2; // Sayının 2'ye bölümünden kalanı döndürür.
-        }
-
-        // Parametre alan ve geriye tamsayı döndüren bir metot. İki sayıyı çarpıp sonucunu döndürür.
-        public int carp(int a, int b)
-        {
-            return a * b; // İki sayıyı çarpar ve sonucu geri döndürür.
-        }
-
-        // Parametre alan ve geriye değer döndürmeyen bir metot. İsim ve soyisim alıp ekrana hoş geldiniz mesajı yazdırır.
-        public void isimsoyisim(string isim, string soyisim)
-        {
-            Console.WriteLine($"Hoş Geldiniz {isim} {soyisim}"); // İsim ve soyisim ile birlikte ekrana bir mesaj yazar.
-        }
-    }
+    Console.WriteLine("Uzun ince bir yoldayım gidiyorum gündüz gece");
 }
+
+// Metot çağrısı: sarkisozu metodu çağrılarak şarkı sözü ekrana yazdırılır.
+sarkisozu();
+
+//--------------------------------------------------------
+
+// Geriye tamsayı döndüren bir metot: tamsayidondur
+// Rastgele bir sayı üretir ve bu sayının 2'ye bölümünden kalanı döndürür.
+int tamsayidondur()
+{
+    // Rastgele bir sayı oluşturmak için Random sınıfı kullanılır.
+    Random rnd = new Random();
+    int sayi = rnd.Next(1, 100); // 1 ile 100 arasında rastgele bir sayı üretir.
+    return sayi % 2; // Üretilen sayının 2'ye bölümünden kalan döndürülür.
+}
+
+// Metot çağrısı: tamsayidondur metodu çağrılarak üretilen sayının kalan değeri alınır.
+int sayi = tamsayidondur();
+Console.WriteLine($"Dönen sayı: {sayi}");
+
+//--------------------------------------------------------
+
+// Parametre alan ve geriye tamsayı döndüren bir metot: carp
+// İki sayının çarpımını döndürür.
+int carp(int sayi1, int sayi2)
+{
+    return sayi1 * sayi2; // Verilen iki sayıyı çarpar ve sonucu döndürür.
+}
+
+// Metot çağrısı: carp metodu çağrılarak iki sayının çarpım sonucu ekrana yazdırılır.
+int sonuc = carp(5, 10);
+Console.WriteLine($"Çarpımın Sonucu: {sonuc}");
+
+//--------------------------------------------------------
+
+// Parametre alan ve geriye değer döndürmeyen bir metot: isimsoyisim
+// Verilen isim ve soyisim değerlerini ekrana yazdırır.
+void isimsoyisim(string ad, string soyad)
+{
+    Console.WriteLine($"Merhaba {ad} {soyad}"); // "Merhaba" şeklinde isim ve soyisim yazdırılır.
+}
+
+// Metot çağrısı: isimsoyisim metodu çağrılarak isim ve soyisim ekrana yazdırılır.
+isimsoyisim("Serhat", "Uzun");
